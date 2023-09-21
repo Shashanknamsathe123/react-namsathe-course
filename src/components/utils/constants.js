@@ -1,0 +1,2 @@
+export const HEADER_IMAGE = "https://www.clipartmax.com/png/middle/112-1129793_healthy-food-logo-png.png"
+export const RES_CARD_IMAGE =  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_1024/"

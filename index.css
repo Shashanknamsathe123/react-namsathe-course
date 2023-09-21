@@ -21,11 +21,15 @@
     margin: 10px;
 }
 
+.filter-btn {
+    margin: 10px;
+}
+
 .res-card {
     padding: 5px;
     width: 200px;
-    height: 350px;
-    
+    height: 450px;
+    margin: 30px;
 }
 
 .res-card:hover {
