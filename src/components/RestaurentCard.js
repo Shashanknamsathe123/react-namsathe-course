@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import {RES_CARD_IMAGE} from '../components/utils/constants'
 
 const Restaurantcard = (props) => {
-    console.log(props.resData, "......props");
     const { name, costForTwo, cuisines, cloudinaryImageId, avgRating } =
       props?.resData;
     // const {cloudinaryImageId} = props
