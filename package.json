@@ -19,5 +19,9 @@
   "browserslist": [
     "last 2 Chrome version",
     "last 2 Firefox version"
-  ]
+  ],
+  "devDependencies": {
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3"
+  }
 }

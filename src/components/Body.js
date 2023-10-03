@@ -11,7 +11,6 @@ import { Link } from "react-router-dom";
     const [search, setSearch] = useState("")
     const [filterrestaurent, setFilterrestaurent] = useState([])
    
-    console.log(listOfrestaurants,"......search")
     useEffect(() => {
       fetchData();
     }, [])
@@ -23,23 +22,32 @@ import { Link } from "react-router-dom";
       setFilterrestaurent(result?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
     }
 
-    return listOfrestaurants.length === 0 ? (<h2>Loading..................</h2>) : (
+    if (listOfrestaurants.length === 0) return (<h2>Loading..................</h2>)
+
+    return  (
       <div className="body">
-        <div className="filter">
+        <div className="filter flex flex-wrap">
+          <div className="px-4 py-4 m-4 bg-pink-100 flex items-center rounded-md">
           <button className="filter-btn" onClick={() => {
             const result = listOfrestaurants.filter((item) => {
-              return item.info.avgRating >= 4.5
+              return item.info.avgRating >= 4.6
             })
+            setFilterrestaurent(result)
           }}>
             Top Rated Restaurent
           </button>
-          <input type="text" className="search-text" value={search} onChange={(e) => setSearch(e.target.value)} />
-          <button onClick={() => {
+          </div>
+
+          <input type="text" className="border border-solid border-cyan-500 h-12 mt-5 rounded-md" value={search} onChange={(e) => setSearch(e.target.value)} />
+          <button
+           className="px-4 py-2 bg-green-100 m-4 rounded-md hover:bg-green-600"
+           onClick={() => {
               let filterdata = listOfrestaurants.filter((res, index) => res.info.name.toLowerCase().includes(search.toLowerCase().trim()))
               setFilterrestaurent(filterdata)
           }}>Search</button>
         </div>
-        <div className="res-container">
+
+        <div className="flex flex-wrap">
           {filterrestaurent.map((resItem) => (
             <Link to={"/restaurents/" + resItem.info.id} key={resItem.info.id}><Restaurantcard  resData={resItem.info} /></Link>
           ))}
